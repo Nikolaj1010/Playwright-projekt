@@ -1,11 +1,25 @@
 pipeline {
   agent any
   stages {
+    stage('checkout') {
+      steps {
+        sh '''
+          actions/checkout@v3
+        '''
+      }
+    }
+    stage('setup node') {
+      steps {
+        sh '''
+          actions/setup-node@v3
+        '''
+      }
+    }
     stage('install playwright') {
       steps {
         sh '''
-          npm i -D @playwright/test
-          npx playwright install
+          npm ci
+          npx playwright install --with-deps
         '''
       }
     }
