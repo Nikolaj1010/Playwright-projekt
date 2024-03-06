@@ -5,12 +5,10 @@ pipeline {
     } 
   }
   stages {
-    stage('build') {
+    stage('install playwright') {
       environment {
         HOME="."
       }
-    }
-    stage('install playwright') {
       steps {
         sh '''
           npm i -D @playwright/test
