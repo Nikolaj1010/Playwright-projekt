@@ -5,6 +5,11 @@ pipeline {
     } 
   }
   stages {
+    stage('build') {
+      environment {
+        HOME="."
+      }
+    }
     stage('install playwright') {
       steps {
         sh '''
