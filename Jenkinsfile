@@ -3,16 +3,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        bat '''
-          actions/checkout@v3
-        '''
-      }
-    }
-    stage('setup node') {
-      steps {
-        bat '''
-          actions/setup-node@v3
-        '''
+        git 'https://github.com/Nikolaj1010/Playwright-projekt.git'
       }
     }
     stage('install playwright') {
