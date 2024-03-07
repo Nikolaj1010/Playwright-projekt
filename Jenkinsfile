@@ -1,11 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('checkout') {
-      steps {
-        git: 'https://github.com/Nikolaj1010/Playwright-projekt.git'
-      }
-    }
     stage('install playwright') {
       steps {
         bat '''
