@@ -3,21 +3,21 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        sh '''
+        bat '''
           actions/checkout@v3
         '''
       }
     }
     stage('setup node') {
       steps {
-        sh '''
+        bat '''
           actions/setup-node@v3
         '''
       }
     }
     stage('install playwright') {
       steps {
-        sh '''
+        bat '''
           npm ci
           npx playwright install --with-deps
         '''
@@ -25,12 +25,12 @@ pipeline {
     }
     stage('help') {
       steps {
-        sh 'npx playwright test --help'
+        bat 'npx playwright test --help'
       }
     }
     stage('test') {
       steps {
-        sh '''
+        bat '''
           npx playwright test --list
           npx playwright test
         '''
