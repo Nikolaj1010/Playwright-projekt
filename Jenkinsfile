@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/Nikolaj1010/Playwright-projekt.git'
+        git: 'https://github.com/Nikolaj1010/Playwright-projekt.git'
       }
     }
     stage('install playwright') {
